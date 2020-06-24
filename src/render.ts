@@ -268,3 +268,21 @@ export function render(value: Record<string, unknown>): string {
 
   return rend + Array.from(rendered.values()).join('')
 }
+
+export function fragmentToString(value: Record<string, unknown>): string {
+  // Construct main render context.
+  const context: RenderContext = {
+    fragments: new Map(),
+  }
+
+  // Render main body.
+  renderObject(undefined, value, context)
+
+  // Render the fragments defined in each context until we have no more to render.
+  let currentContext: RenderContext = {
+    // The current context for execution.
+    fragments: new Map(),
+  }
+  const fragment = Array.from(context.fragments.entries())[0]
+  return renderFragment(fragment[1], currentContext)
+}
