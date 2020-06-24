@@ -1,5 +1,5 @@
 {
-  "name": "typed-graphqlify",
+  "name": "@kevinsimper/typed-graphqlify",
   "version": "2.3.0",
   "description": "Build Typed GraphQL Queries in TypeScript. A better TypeScript + GraphQL experience.",
   "keywords": [
